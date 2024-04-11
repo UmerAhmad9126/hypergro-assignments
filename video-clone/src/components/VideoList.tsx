@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Pagination from './Pagination';
 import axios from 'axios';
 import Videos from './Videos';
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const VideoList = () => {
     const [posts, setPosts] = useState<any[]>([]);
@@ -38,17 +39,18 @@ const VideoList = () => {
 
     return (
         <div>
-            {playVideo ? (
-                <div>
-
-                    <video controls width="250">
+            {playVideo ? (<>
+                <IoMdArrowRoundBack size={32} className='m-2' onClick={() => setPlayVideo(null)} />
+                <div className='w-100% h-100vh flex justify-center items-center'>
+                    <video controls width="250" className='m-5'>
                         <source src={playVideo.submission.mediaUrl} type="video/webm" />
                         video.
                     </video>
                 </div>
+            </>
             ) : (
                 <>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-4 gap-6 ">
                         {posts.map((el) => (
                             <Videos key={el.postId} el={el} handlePlayVideo={handlePlayVideo} />
                         ))}
