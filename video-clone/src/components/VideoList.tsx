@@ -71,7 +71,7 @@ const VideoList = () => {
                 <>
                     <div className="grid grid-cols-4 gap-6 ">
                         {posts.map((el) => (
-                            <Videos key={el.postId} el={el} handlePlayVideo={handlePlayVideo} />
+                            <Videos key={el.postId} el={el}  handlePlayVideo={handlePlayVideo} />
                         ))}
                     </div>
                     <Pagination currentPage={currentPage} onPageChange={handlePageChange} />
